@@ -9,6 +9,7 @@ Individual puzzle inputs need to be dropped into `inputs/` with names like `dayN
 ## Running rust files
 
 `cd rust`
+
 `cargo run --bin <name of module>`
 
 for example, to run the day 1 solution (which I intend to call `day1.rs`): `cargo run --bin day1`
@@ -22,5 +23,7 @@ To run the test for a day, run `cargo test --bin <name of module>` from within t
 You'll need [pnpm](https://pnpm.io/) installed, then it's as simple as:
 
 `cd typescript`
+
 `pnpm install`
+
 `pnpm run dayN` where `N` is the day number, eg `pnpm run day2` to print the solution for day 2.
