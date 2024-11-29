@@ -4,7 +4,8 @@
     "main": "index.ts",
     "type": "module",
     "scripts": {
-        "day1": "pnpm tsx src/day1"
+        "day1": "pnpm tsx src/day1",
+        "test": "pnpm vitest"
     },
     "keywords": [],
     "author": "",
