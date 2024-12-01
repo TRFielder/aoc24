@@ -25,7 +25,7 @@ export const part1 = (first: number[], second: number[]): number => {
     second.sort((a, b) => a - b)
 
     const output = first.reduce((acc, val, index) => {
-        return (acc += Math.abs(val - second[index]))
+        return acc + Math.abs(val - second[index])
     }, 0)
 
     return output
