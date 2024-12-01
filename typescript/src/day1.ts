@@ -31,8 +31,24 @@ export const part1 = (first: number[], second: number[]): number => {
     return output
 }
 
+export const part2 = (first: number[], second: number[]): number => {
+    let result: number = 0
+
+    first.forEach((value) => {
+        const count = second.reduce(
+            (acc, val) => (val === value ? acc + 1 : acc),
+            0
+        )
+        result += value * count
+    })
+
+    return result
+}
+
 const [first, second] = parseInputToArrays(input)
 
 const part1Result = part1(first, second)
+const part2Result = part2(first, second)
 
 console.log("The result for day 1 part 1 is ", part1Result)
+console.log("The result for day 1 part 2 is ", part2Result)
