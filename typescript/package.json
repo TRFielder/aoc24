@@ -5,6 +5,7 @@
     "type": "module",
     "scripts": {
         "day1": "pnpm tsx src/day1",
+        "day2": "pnpm tsx src/day2",
         "test": "pnpm vitest"
     },
     "keywords": [],
