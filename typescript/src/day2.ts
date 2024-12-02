@@ -27,7 +27,6 @@ const isSafe = (report: number[]): boolean => {
             )
         return true
     })
-    console.log(isDecreasing, isIncreasing, differencesInBounds)
 
     return (isDecreasing || isIncreasing) && differencesInBounds
 }
@@ -44,6 +43,35 @@ export const part1 = (reports: string[]): number => {
     return safe
 }
 
+export const part2 = (reports: string[]): number => {
+    let safe: number = 0
+
+    reports.forEach((report) => {
+        const levels = report.split(/\s+/).map(Number)
+
+        if (isSafe(levels)) {
+            safe++
+            return
+        }
+
+        // Check if removing one element makes it safe
+        for (let index = 0; index < levels.length; index++) {
+            // Filter out the element we're removing, one by one through each element the report
+            const temp = levels.filter((_, i) => i !== index)
+
+            if (isSafe(temp)) {
+                safe++
+                // We can stop looking if we find a safe one
+                return
+            }
+        }
+    })
+
+    return safe
+}
+
 const part1Result = part1(lines)
+const part2Result = part2(lines)
 
 console.log("The result for day 2 part 1 is ", part1Result)
+console.log("The result for day 2 part 2 is ", part2Result)
