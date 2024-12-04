@@ -72,6 +72,51 @@ export const part1 = (input: string) => {
     return result
 }
 
+export const part2 = (input: string) => {
+    const grid: string[][] = input.split("\r\n").map((line) => line.split(""))
+
+    let result: number = 0
+
+    // Iterate through the grid again, but the directions are different (only diagonals) and we just want "MAS"
+    // We need to start by finding A, and then M and S are either side of it
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid[row].length; col++) {
+            if (grid[row][col] === "A") {
+                // Lazy try block again in case we go out of bounds
+                try {
+                    // Form a set of the letters before and after the "A" in both diagonal direcitons
+                    // We use a set because a set is made up of unique values, so if S and M are present
+                    // we know that it's a legit MAS in that direction
+                    const forward = new Set([
+                        grid[row - 1][col - 1],
+                        grid[row + 1][col + 1],
+                    ])
+                    const backward = new Set([
+                        grid[row - 1][col + 1],
+                        grid[row + 1][col - 1],
+                    ])
+                    if (
+                        // We care if each set has an S and an M. 
+                        // Because there are two elements in each set, we just need to check for each letter
+                        forward.has("S") &&
+                        forward.has("M") &&
+                        backward.has("S") &&
+                        backward.has("M")
+                    ) {
+                        result++
+                    }
+                } catch {
+                    break
+                }
+            }
+        }
+    }
+    return result
+}
+
+const part2Result = part2(input)
+
 const part1Result = part1(input)
 
 console.log("The result for Day 4 part 1 is: ", part1Result)
+console.log("The result for Day 4 part 2 is: ", part2Result)
