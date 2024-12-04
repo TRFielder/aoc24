@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 const INPUT: &str = include_str!("../../../inputs/day4.txt");
 
 fn main() {
@@ -71,9 +73,56 @@ fn part1(input: &str) -> i32 {
     result
 }
 
-#[allow(unused_variables)]
 fn part2(input: &str) -> i32 {
-    9
+    let mut result: i32 = 0;
+
+    // Input to a grid, let's turn this into a utility function later
+    let grid = input
+        .lines()
+        .map(|line| line.chars().collect::<Vec<char>>())
+        .collect::<Vec<Vec<char>>>();
+
+    // Iterate through the grid looking for "A"
+    for row in 0..grid.len() {
+        for col in 0..grid[row].len() {
+            if grid[row][col] == 'A' {
+                // Check both diagonal directions
+
+                let mut forward: HashSet<char> = HashSet::new();
+                let mut backward: HashSet<char> = HashSet::new();
+
+                // Check we're not out of bounds and add the letter if it's in bounds
+                if row > 0 && col > 0 {
+                    forward.insert(grid[row - 1][col - 1]);
+                }
+
+                if row + 1 < grid.len() && col + 1 < grid[row + 1].len() {
+                    forward.insert(grid[row + 1][col + 1]);
+                }
+
+                if row > 0 && col + 1 < grid[row].len() {
+                    backward.insert(grid[row - 1][col + 1]);
+                }
+
+                if row + 1 < grid.len() && col > 0 {
+                    backward.insert(grid[row + 1][col - 1]);
+                }
+
+                // Now we just care if each set has an S and an M
+                // Because there are two elements in each set
+                // we just need to check for each letter
+                if forward.contains(&'S')
+                    && forward.contains(&'M')
+                    && backward.contains(&'S')
+                    && backward.contains(&'M')
+                {
+                    result += 1;
+                }
+            }
+        }
+    }
+
+    result
 }
 
 #[cfg(test)]
