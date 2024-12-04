@@ -6,6 +6,7 @@
     "scripts": {
         "day1": "pnpm tsx src/day1",
         "day2": "pnpm tsx src/day2",
+        "day4": "pnpm tsx src/day4",
         "test": "pnpm vitest"
     },
     "keywords": [],
