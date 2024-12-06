@@ -1,8 +1,8 @@
 const INPUT: &str = include_str!("../../../inputs/day5.txt");
 
 fn main() {
-    println!("The solution day day 5 part 1 is {}", part1(INPUT));
-    println!("The solution day day 5 part 2 is {}", part2(INPUT));
+    println!("The solution for day 5 part 1 is {}", part1(INPUT));
+    println!("The solution for day 5 part 2 is {}", part2(INPUT));
 }
 
 fn part1(input: &str) -> i32 {
