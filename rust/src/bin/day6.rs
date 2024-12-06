@@ -3,7 +3,7 @@ use std::collections::{HashMap, HashSet};
 const INPUT: &str = include_str!("../../../inputs/day6.txt");
 
 pub fn main() {
-    println!("The result for day 6 part 1 is{}", part1(INPUT));
+    println!("The result for day 6 part 1 is {}", part1(INPUT));
 }
 
 fn part1(input: &str) -> i32 {
