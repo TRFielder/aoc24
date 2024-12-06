@@ -1,10 +1,27 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    time::Instant,
+};
 
 const INPUT: &str = include_str!("../../../inputs/day6.txt");
 
 pub fn main() {
-    println!("The result for day 6 part 1 is {}", part1(INPUT));
-    println!("The result for day 6 part 2 is {}", part2(INPUT));
+    let part1_start = Instant::now();
+    let part1_result = part1(INPUT);
+    let part1_duration = part1_start.elapsed();
+
+    let part2_start = Instant::now();
+    let part2_result = part2(INPUT);
+    let part2_duration = part2_start.elapsed();
+
+    println!(
+        "The result for day 6 part 1 is {}, it took {:?}",
+        part1_result, part1_duration
+    );
+    println!(
+        "The result for day 6 part 2 is {}, it took {:?}",
+        part2_result, part2_duration
+    );
 }
 
 fn part1(input: &str) -> i32 {
