@@ -90,7 +90,7 @@ fn can_reach_target_value(
         false
     };
 
-    // If add or multiply can reach target value at some point, this will return true all the way up to the initial function call
+    // If add, multiply or concat can reach target value at some point, this will return true all the way up to the initial function call
     add || multiply || concat
 }
 
