@@ -45,6 +45,14 @@ export const part1 = (input: string) => {
     return result
 }
 
+const start = performance.now()
 const part1Result = part1(input)
+const end = performance.now()
 
-console.log("The result for Day 4 part 1 is: ", part1Result)
+console.log(
+    "The result for Day 5 part 1 is: ",
+    part1Result,
+    " it took ",
+    end - start,
+    "ms"
+)
