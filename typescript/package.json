@@ -7,6 +7,7 @@
         "day1": "pnpm tsx src/day1",
         "day2": "pnpm tsx src/day2",
         "day4": "pnpm tsx src/day4",
+        "day5": "pnpm tsx src/day5",
         "test": "pnpm vitest"
     },
     "keywords": [],
