@@ -1,3 +1,4 @@
 inputs/*
 typescript/node_modules
 rust/target
+rust/day14img
